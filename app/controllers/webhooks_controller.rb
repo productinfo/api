@@ -1,5 +1,6 @@
 class WebhooksController < ApplicationController
   def github
+    raise StandardError
     payload = JSON.parse(request.body.read)
     action = payload.fetch("action")
     if action == "published" && payload.key?("release")
