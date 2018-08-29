@@ -11,14 +11,14 @@ jobs:
 
       # Restore bundle cache
       - type: cache-restore
-        key: sinatra-demo-{{ checksum "Gemfile.lock" }}
+        key: tweet-{{ checksum "Gemfile.lock" }}
 
       # Bundle install dependencies
       - run: bundle install --path vendor/bundle
 
       # Store bundle cache
       - type: cache-save
-        key: sinatra-{{ checksum "Gemfile.lock" }}
+        key: tweet-{{ checksum "Gemfile.lock" }}
         paths:
           - vendor/bundle
 
