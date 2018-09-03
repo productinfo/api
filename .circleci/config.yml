@@ -10,14 +10,14 @@ jobs:
 
       # Restore bundle cache
       - type: cache-restore
-        key: tweet-{{ checksum "Gemfile.lock" }}
+        key: api-{{ checksum "Gemfile.lock" }}
 
       # Bundle install dependencies
       - run: bundle install --path vendor/bundle
 
       # Store bundle cache
       - type: cache-save
-        key: tweet-{{ checksum "Gemfile.lock" }}
+        key: api-{{ checksum "Gemfile.lock" }}
         paths:
           - vendor/bundle
 

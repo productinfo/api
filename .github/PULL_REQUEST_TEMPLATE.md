@@ -1,4 +1,4 @@
-Resolves https://github.com/tuist/tweet/issues/YYY
+Resolves https://github.com/tuist/apis/issues/YYY
 
 ### Short description 📝
 
