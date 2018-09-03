@@ -21,6 +21,7 @@ class WebhooksController < ApplicationController
     Twitter::Client.update("🚀 Shipped #{version}: Find out more on the release page #{release_url}")
   end
 
+  # https://developer.github.com/webhooks/securing/
   def verify_signature(payload_body)
     signature = 'sha1=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), Figaro.env.github_secret_token!, payload_body)
     return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE'])
