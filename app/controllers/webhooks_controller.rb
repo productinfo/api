@@ -15,7 +15,7 @@ class WebhooksController < ApplicationController
 
     if action == "published" && payload.key?("release")
       post_release(
-        release: payload.fetch("release")
+        release: payload.fetch("release"),
         repository: payload.fetch("repository").fetch("name")
       )
       head :ok
