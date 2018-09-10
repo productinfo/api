@@ -5,6 +5,12 @@ class WebhooksController < ApplicationController
     verify_signature(payload_body)
 
     payload = JSON.parse(payload_body)
+
+    unless payload.key?("action")
+      head :unprocessable_entity
+      return
+    end
+
     action = payload.fetch("action")
 
     if action == "published" && payload.key?("release")
