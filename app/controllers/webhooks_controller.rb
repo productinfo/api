@@ -24,7 +24,7 @@ class WebhooksController < ApplicationController
     end
   end
 
-  def post_release(release, repository:)
+  def post_release(release:, repository:)
     version = release["tag_name"]
     release_url = release["html_url"]
     Twitter::Client.update("🚀 Shipped #{repository} #{version}: Find out more on the release page #{release_url}")
