@@ -47,3 +47,5 @@ gem "twitter", "~> 6.2"
 gem "figaro", "~> 1.1"
 
 gem "sentry-raven", "~> 2.7"
+
+gem "octokit", "~> 4.12"
