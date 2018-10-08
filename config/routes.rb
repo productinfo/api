@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   post 'webhooks/github', to: 'webhooks#github'
   get 'zen', to: 'zen#show'
   get 'contributors', to: 'github#contributors'
+  get 'projects', to: 'github#projects'
 end
