@@ -12,22 +12,7 @@ class WebhooksController < ApplicationController
     end
 
     action = payload.fetch("action")
-
-    if action == "published" && payload.key?("release")
-      post_release(
-        release: payload.fetch("release"),
-        repository: payload.fetch("repository").fetch("name")
-      )
-      head :ok
-    else
-      head :unprocessable_entity
-    end
-  end
-
-  def post_release(release:, repository:)
-    version = release["tag_name"]
-    release_url = release["html_url"]
-    Twitter::Client.update("🚀 Shipped #{repository} #{version}: Find out more on the release page #{release_url}")
+    head :ok
   end
 
   # https://developer.github.com/webhooks/securing/
